@@ -35,8 +35,8 @@ El usuario deberia poder
 
 ## Links
 
-- Solucion: [GITHUB](https://github.com/J-HernandezM/multistep-form)
-- Live site: [PAGES](https://j-hernandezm.github.io/multistep-form/)
+- Solucion: [GITHUB](https://github.com/J-HernandezM/age-calculator-app)
+- Live site: [PAGES](https://j-hernandezm.github.io/age-calculator-app/)
 
 ## Mi proceso
 
