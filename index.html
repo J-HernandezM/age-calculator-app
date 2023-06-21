@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles.css">
+  
+  <title>Age calculator app</title>
+
+
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); text-decoration: none;}
+  </style>
+</head>
+<body>
+    <main>
+        <form>
+            <div class="inputBox">
+                <div class="eachInputBox">
+                    <label for="day">DAY</label>
+                    <input min="1" max="12" class="inputs inputDay error" id="day" type="text" placeholder="DD">
+                    <span class="errorSpan inactive spanDay">Must be a valid day</span>
+                </div>
+                <div class="eachInputBox">
+                    <label for="month">MONTH</label>
+                    <input class="inputs inputMonth" id="month" type="text" placeholder="MM">
+                    <span class="errorSpan inactive spanMonth">Must be a valid month</span>
+                </div>
+                <div class="eachInputBox">
+                    <label for="year">YEAR</label>
+                    <input class="inputs inputYear" id="year" type="text" placeholder="YYYY">
+                    <span class="errorSpan inactive spanYear">Must be in the past</span>
+                </div>
+            </div>
+            <button><img src="./assets/images/icon-arrow.svg" alt="arrow" ></button>
+        </form>
+        <section>
+            <p class="years dates"><span class="actualDate actualYear">--</span> years</p>
+            <p class="months dates"><span class="actualDate actualMonth">--</span> months</p>
+            <p class="days dates"><span class="actualDate actualDay">--</span> days</p>
+        </section>
+    </main>
+
+    <footer class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">J-HernandezM</a>.
+    </footer>
+    <script src="./index.js"></script>
+</body>
+</html>
