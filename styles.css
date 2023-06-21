@@ -17,6 +17,7 @@
     --md:18rem;
     --lg: 20rem;
     --xl: 55rem;
+    --xxl:65rem;
     font-size: 6.25%;
 }
 *{
@@ -125,6 +126,20 @@ p{
 .actualDate{
     color: var(--purple);
     margin-right: 3rem;
+}
+.animated{
+    animation: grow 2s cubic-bezier(.18,.86,.65,1.31);
+}
+@keyframes grow {
+    0%{
+        font-size: 40rem;
+    }
+    40%{
+        font-size: var(--xxl);
+    }
+    80%{
+        font-size: var(--xl);
+    }
 }
 .errorInput{
     outline: 1px solid var(--light-red);

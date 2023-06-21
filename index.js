@@ -1,9 +1,12 @@
 const form = document.querySelector('form')
 const btn = document.querySelector('button')
+const spanDay = document.querySelector('.spanDay')
 const allInputsNodes = document.querySelectorAll('.inputs')
 const allLabelNodes = document.querySelectorAll('label')
 const allInputs = [...allInputsNodes]
 const allLabels = [...allLabelNodes]
+
+const bannedMonths = [1, 3, 5, 8, 10]
 
 const actualDay = document.querySelector('.actualDay')
 const actualMonth = document.querySelector('.actualMonth')
@@ -12,6 +15,41 @@ const actualYear = document.querySelector('.actualYear')
 let day
 let month
 let year
+
+function livedTime(currenMonth, birthMonth, currenDay, cumpleDay, yearsLived){
+    let monthsSinceBirthday
+    let daysSinceBirthday
+
+    if((currenMonth-birthMonth)>0){
+        if(cumpleDay<=currenDay){
+            monthsSinceBirthday=currenMonth-birthMonth
+        }else{
+            monthsSinceBirthday=currenMonth-birthMonth-1
+        }
+    }else{
+        monthsSinceBirthday=currenMonth-birthMonth+12
+    }
+
+    if(currenDay-cumpleDay>=0){
+        daysSinceBirthday=currenDay-cumpleDay
+    }else{
+        daysSinceBirthday=30-(cumpleDay-currenDay)
+    }
+
+    actualDay.innerHTML=daysSinceBirthday
+    actualMonth.innerHTML=monthsSinceBirthday
+    actualYear.innerHTML=yearsLived
+
+    actualDay.classList.add('animated')
+    actualMonth.classList.add('animated')
+    actualYear.classList.add('animated')
+    setTimeout(()=>{
+        actualDay.classList.remove('animated')
+        actualMonth.classList.remove('animated')
+        actualYear.classList.remove('animated')
+    }, 2000)
+
+}
 
 form.addEventListener('submit', (event)=>{
     event.preventDefault()
@@ -37,30 +75,25 @@ btn.addEventListener('click', (event)=>{
     const currenDay = today.getDate()
     const cumpleDay = birthday.getDate()
 
-
-
-    let monthsSinceBirthday
-    let daysSinceBirthday
-
-    if((currenMonth-birthMonth)>0){
-        if(cumpleDay<=currenDay){
-            monthsSinceBirthday=currenMonth-birthMonth
+    let isBannedMonth = bannedMonths.includes(month-1)
+    if(isBannedMonth){
+        if(day==='31'){
+            allInputs.forEach((input)=>{
+                input.classList.add('errorInput')
+            })
+            allLabels.forEach((label)=>{
+                label.classList.add('errorLabel')
+            })
+            spanDay.classList.remove('inactive')
+            spanDay.innerHTML='Must be a valid date'
         }else{
-            monthsSinceBirthday=currenMonth-birthMonth-1
+            livedTime(currenMonth, birthMonth, currenDay, cumpleDay, yearsLived)
         }
     }else{
-        monthsSinceBirthday=currenMonth-birthMonth+12
+        livedTime(currenMonth, birthMonth, currenDay, cumpleDay, yearsLived)
     }
 
-    if(currenDay-cumpleDay>=0){
-        daysSinceBirthday=currenDay-cumpleDay
-    }else{
-        daysSinceBirthday=30-(cumpleDay-currenDay)
-    }
 
-    actualDay.innerHTML=daysSinceBirthday
-    actualMonth.innerHTML=monthsSinceBirthday
-    actualYear.innerHTML=yearsLived
     
 })
 //Validations done, whole date validation missing
