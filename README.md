@@ -9,12 +9,11 @@
 - [Mi proceso](#mi-proceso)
   - [Hecho con](#hecho-con)
   - [Lo aprendido](#lo-que-aprendi)
-  - [En desarrollo](#en-desarrollo)
 - [Autor](#autor)
 
 ## Descripcion
 
-Solucion al reto de crear un aplicativo que calcule el timepo vivido de una persona a partir de su cumpleanos, calculado utilizando Vanilla JavaScript.
+Solucion al reto de crear un aplicativo que calcule el tiempo vivido de una persona a partir de su cumpleanos, calculado utilizando Vanilla JavaScript.
 
 ## El desafio
 
